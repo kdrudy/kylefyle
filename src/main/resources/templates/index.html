@@ -11,7 +11,32 @@
     <title>Kyle Fyle Display</title>
 </head>
 <body>
-<h1>Kyle Fyle Display</h1>
+    <div class="container">
+        <div class="row">
+            <h1 class="col">Kyle Fyle Display</h1>
+        </div>
+        {{#hasError}}
+        <div class="row">
+            <div class="alert alert-danger col" role="alert">
+                ERROR: {{error}}
+            </div>
+        </div>
+        {{/hasError}}
+        {{^hasError}}
+        <div class="row">
+            <h3 class="col">Displaying file {{fileName}}</h3>
+        </div>
+
+        <div class="row">
+            <ul class="list-group">
+            {{#content}}
+                <li class="list-group-item">{{.}}</li>
+            {{/content}}
+            </ul>
+        </div>
+        {{/hasError}}
+    </div>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
